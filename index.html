@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080b20" />
+    <meta name="description" content="Bert Conrad Salor — Computer Science student, web developer, and creative designer." />
+    <title>Bert Conrad Salor | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+  <body>
+    <!-- ROBOT BACKGROUND -->
+    <div id="robot-background">
+      <canvas id="particleCanvas"></canvas>
+
+      <div class="robot-stage" id="robotStage">
+        <svg
+          class="robot-svg"
+          viewBox="0 0 500 500"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="robotMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#263c70" />
+              <stop offset="50%" stop-color="#111b3e" />
+              <stop offset="100%" stop-color="#070d24" />
+            </linearGradient>
+
+            <linearGradient id="robotFace" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#182e5b" />
+              <stop offset="100%" stop-color="#080e27" />
+            </linearGradient>
+
+            <filter id="robotGlow">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <clipPath id="faceClip">
+              <rect x="145" y="165" width="210" height="160" rx="48" />
+            </clipPath>
+          </defs>
+
+          <ellipse class="robot-orbit" cx="250" cy="250" rx="215" ry="105" />
+          <ellipse
+            class="robot-orbit-two"
+            cx="250"
+            cy="250"
+            rx="175"
+            ry="220"
+          />
+
+          <circle
+            cx="35"
+            cy="250"
+            r="5"
+            fill="#22d3ee"
+            filter="url(#robotGlow)"
+          />
+          <circle
+            cx="465"
+            cy="250"
+            r="5"
+            fill="#8b5cf6"
+            filter="url(#robotGlow)"
+          />
+          <circle
+            cx="250"
+            cy="30"
+            r="5"
+            fill="#22d3ee"
+            filter="url(#robotGlow)"
+          />
+
+          <g>
+            <path
+              d="M190 340 L170 420 Q250 465 330 420 L310 340"
+              fill="url(#robotMetal)"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+            <path
+              d="M205 355 L195 405 Q250 435 305 405 L295 355"
+              fill="#101d42"
+              stroke="#3b82f6"
+              stroke-width="2"
+            />
+            <rect
+              x="220"
+              y="370"
+              width="60"
+              height="30"
+              rx="12"
+              fill="#0a1632"
+              stroke="#22d3ee"
+              stroke-width="2"
+            />
+            <circle
+              cx="250"
+              cy="385"
+              r="7"
+              fill="#22d3ee"
+              filter="url(#robotGlow)"
+            />
+            <path
+              d="M185 365 L140 390 L155 415 L205 390"
+              fill="url(#robotMetal)"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+            <path
+              d="M315 365 L360 390 L345 415 L295 390"
+              fill="url(#robotMetal)"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+            <circle
+              cx="150"
+              cy="405"
+              r="12"
+              fill="#142b55"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+            <circle
+              cx="350"
+              cy="405"
+              r="12"
+              fill="#142b55"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+          </g>
+
+          <g class="robot-head" id="robotHead">
+            <path
+              d="M250 165 L250 120"
+              stroke="#22d3ee"
+              stroke-width="7"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="250"
+              cy="108"
+              r="13"
+              fill="#22d3ee"
+              filter="url(#robotGlow)"
+              class="robot-glow"
+            />
+
+            <rect
+              x="125"
+              y="145"
+              width="250"
+              height="210"
+              rx="60"
+              fill="url(#robotMetal)"
+              stroke="#22d3ee"
+              stroke-width="4"
+            />
+            <rect
+              x="105"
+              y="220"
+              width="25"
+              height="65"
+              rx="10"
+              fill="#142b55"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+            <rect
+              x="370"
+              y="220"
+              width="25"
+              height="65"
+              rx="10"
+              fill="#142b55"
+              stroke="#22d3ee"
+              stroke-width="3"
+            />
+            <rect
+              x="145"
+              y="165"
+              width="210"
+              height="160"
+              rx="48"
+              fill="url(#robotFace)"
+              stroke="#3b82f6"
+              stroke-width="2"
+            />
+
+            <g clip-path="url(#faceClip)">
+              <g id="leftEye" class="robot-eye">
+                <ellipse
+                  cx="205"
+                  cy="235"
+                  rx="23"
+                  ry="31"
+                  fill="#22d3ee"
+                  filter="url(#robotGlow)"
+                />
+                <ellipse cx="205" cy="235" rx="10" ry="18" fill="#ffffff" />
+              </g>
+              <g id="rightEye" class="robot-eye">
+                <ellipse
+                  cx="295"
+                  cy="235"
+                  rx="23"
+                  ry="31"
+                  fill="#22d3ee"
+                  filter="url(#robotGlow)"
+                />
+                <ellipse cx="295" cy="235" rx="10" ry="18" fill="#ffffff" />
+              </g>
+              <rect
+                class="robot-scan"
+                x="145"
+                y="160"
+                width="210"
+                height="5"
+                fill="#22d3ee"
+                opacity="0.4"
+              />
+            </g>
+
+            <path
+              d="M220 285 Q250 305 280 285"
+              fill="none"
+              stroke="#22d3ee"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <circle cx="155" cy="185" r="5" fill="#8b5cf6" />
+            <circle cx="345" cy="185" r="5" fill="#8b5cf6" />
+            <circle cx="155" cy="305" r="5" fill="#22d3ee" />
+            <circle cx="345" cy="305" r="5" fill="#22d3ee" />
+            <path
+              d="M180 145 L195 130 L305 130 L320 145"
+              fill="none"
+              stroke="#8b5cf6"
+              stroke-width="3"
+            />
+          </g>
+
+          <g fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.7">
+            <path d="M60 145 H100 V165" />
+            <path d="M440 145 H400 V165" />
+            <path d="M65 340 H110 V320" />
+            <path d="M435 340 H390 V320" />
+          </g>
+
+          <g fill="#22d3ee" class="robot-glow">
+            <circle cx="60" cy="145" r="5" />
+            <circle cx="440" cy="145" r="5" />
+            <circle cx="65" cy="340" r="5" />
+            <circle cx="435" cy="340" r="5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- MUSIC -->
+    <audio id="backgroundMusic" loop preload="auto">
+      <source src="music/background-music.mp3" type="audio/mpeg" />
+      Your browser does not support HTML audio.
+    </audio>
+
+    <button
+      id="musicToggle"
+      class="music-toggle"
+      aria-label="Play background music"
+    >
+      <span id="musicIcon">♫</span>
+      <span id="musicText">Play Music</span>
+    </button>
+
+    <!-- NAVIGATION -->
+    <header>
+      <nav>
+        <a href="#home" class="logo"></a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            aria-label="Switch to light mode"
+            title="Switch to light mode"
+          >
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="hero-content">
+        <div class="hero-text reveal">
+          <div class="hero-label">
+            <span class="status-dot"></span>
+           
+          </div>
+
+          <h1>Hello, I'm <span>Bert Conrad Salor</span></h1>
+          <h2>I'm a <span id="typingText">Web Developer</span></h2>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn">
+              <i class="fas fa-code"></i> View My Projects
+            </a>
+            <a
+              href="my-cv.pdf"
+              class="btn btn-outline"
+              download="Bert-Conrad-Salor-CV.pdf"
+            >
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a
+              href="https://www.facebook.com/share/1CQUEunAHC/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://www.tiktok.com/@bert.conrad.salor"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a
+              href="https://github.com/BertSalor"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/_u/besalor_2002"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image reveal">
+          <div class="image-ring">
+            <img src="images/my-picture.jpg" alt="Bert Conrad Salor" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>About <span>Me</span></h2>
+        </div>
+
+        <div class="about-content">
+          <div class="about-image reveal">
+            <img
+              src="images/my-picture.jpg"
+              alt="Bert Conrad Salor profile photo"
+            />
+          </div>
+
+          <div class="about-text reveal">
+            <h3>I'm Bert Conrad <span>Salor</span></h3>
+
+            <p>
+              I am a fourth-year Bachelor of Science in Computer Science student
+              at STCS/BIPSU. I have an interest in web development, technology,
+              and designing digital experiences that are both functional and
+              visually appealing.
+            </p>
+
+            <p>
+              I enjoy developing websites using HTML, CSS, JavaScript, Python,
+              and MySQL. I continuously improve my technical skills by working
+              on personal projects and exploring new technologies.
+            </p>
+
+            <a href="#contact" class="btn">
+              <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>My <span>Skills</span></h2>
+        </div>
+
+        <div class="skill-network reveal">
+          <p class="network-title"></p>
+          <div class="network-line">
+            <div class="network-node">
+              <i class="fab fa-html5"></i><span>HTML</span>
+            </div>
+            <div class="network-connector"></div>
+            <div class="network-node">
+              <i class="fab fa-css3-alt"></i><span>CSS</span>
+            </div>
+            <div class="network-connector"></div>
+            <div class="network-node">
+              <i class="fab fa-js"></i><span>JavaScript</span>
+            </div>
+            <div class="network-connector"></div>
+            <div class="network-node">
+              <i class="fab fa-python"></i><span>PYTHON</span>
+            </div>
+            <div class="network-connector"></div>
+            <div class="network-node">
+              <i class="fas fa-database"></i><span>MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>My <span>Services</span></h2>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+            <p>
+              Developing responsive and functional websites using modern web
+              technologies and user-friendly layouts.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <i class="fas fa-palette"></i>
+            <h3>Graphic Design</h3>
+            <p>
+              Creating creative visual concepts, digital materials, and designs
+              that communicate ideas effectively.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <i class="fas fa-object-group"></i>
+            <h3>UI / UX Design</h3>
+            <p>
+              Designing organized, attractive, and easy-to-use interfaces for
+              websites and digital applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>My <span>Projects</span></h2>
+        </div>
+
+        <div class="projects-slider">
+          <div class="projects-grid" id="projectsGrid">
+            <div class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/project-1.jpg"
+                  alt="Calculator Website Preview"
+                />
+              </div>
+              <div class="project-content">
+                <h3>Calculator Website</h3>
+                <p>
+                  A simple and interactive calculator website designed to
+                  perform basic mathematical operations through a clean and
+                  user-friendly interface.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://resplendent-clafoutis-903994.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn"
+                  >
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/BertSalor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                  >
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/project-2.jpg"
+                  alt="Checklist Dashboard Preview"
+                />
+              </div>
+              <div class="project-content">
+                <h3>Checklist Dashboard</h3>
+                <p>
+                  A checklist dashboard concept designed to organize tasks,
+                  manage daily activities, and help users monitor their progress
+                  through a simple interface.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://harmonious-mandazi-7973a7.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn"
+                  >
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/BertSalor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                  >
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/project-3.jpg"
+                  alt="Tracking Website Preview"
+                />
+              </div>
+              <div class="project-content">
+                <h3>Tracking Website</h3>
+                <p>
+                  A tracking website interface focused on organizing
+                  information, monitoring progress, and presenting important
+                  details in a clear dashboard layout.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://tiny-kulfi-fe913a.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn"
+                  >
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/BertSalor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                  >
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/project-4.jpg"
+                  alt="Personal Portfolio Website Preview"
+                />
+              </div>
+              <div class="project-content">
+                <h3>Personal Portfolio</h3>
+                <p>
+                  A personal portfolio website that showcases my background,
+                  technical skills, projects, certificates, and contact
+                  information in a responsive design.
+                </p>
+                <div class="project-actions">
+                  <a
+                    href="https://admirable-stardust-f881a6.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn"
+                  >
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/BertSalor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                  >
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          <div class="slider-controls">
+            <button
+              class="slider-btn"
+              id="projectsPrev"
+              aria-label="Previous projects"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <span class="slider-label">SCROLL TO EXPLORE PROJECTS</span>
+            <button
+              class="slider-btn"
+              id="projectsNext"
+              aria-label="Next projects"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>My <span>Certificates</span></h2>
+        </div>
+
+        <div class="certificates-slider">
+          <div class="certificate-grid" id="certificatesGrid">
+            <div class="certificate-card reveal">
+              <div class="certificate-image">
+                <img
+                  src="images/certificate-1.jpg"
+                  alt="Microsoft Artificial Intelligence Course Certificate"
+                />
+              </div>
+              <div class="certificate-info">
+                <h3>
+                  Microsoft Artificial Intelligence Course: Azure AI
+                  Fundamentals
+                </h3>
+        
+                <a
+                  href="images/certificate-1%20(2).pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="fas fa-eye"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="certificate-card reveal">
+              <div class="certificate-image">
+                <img
+                  src="images/certificate-2.jpg"
+                  alt="Microsoft Cybersecurity Course Certificate"
+                />
+              </div>
+              <div class="certificate-info">
+                <h3>
+                  Microsoft Cybersecurity Course: Security, Compliance, and
+                  Identity Fundamentals
+                </h3>
+
+                <a
+                  href="images/certificate-2.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="fas fa-eye"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="certificate-card reveal">
+              <div class="certificate-image">
+                <img
+                  src="images/certificate-3.jpg"
+                  alt="AI Literacy Certificate"
+                />
+              </div>
+              <div class="certificate-info">
+                <h3>Introduction to AI Literacy and Responsible Use</h3>
+
+  
+                <a
+                  href="images/certificate-3.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="fas fa-eye"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="certificate-card reveal">
+              <div class="certificate-image">
+                <img
+                  src="images/certificate-4.jpg"
+                  alt="English Foundations Certificate"
+                />
+              </div>
+              <div class="certificate-info">
+                <h3>
+                  Mastering English Foundations, Upholding Academic Integrity,
+                  and Advancing Gender-Fair Writing
+                </h3>
+              
+                <a
+                  href="images/certificate-4.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="fas fa-eye"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="certificate-card reveal">
+              <div class="certificate-image">
+                <img
+                  src="images/certificate-5%20(2).jpg"
+                  alt="Networking Basics Certificate"
+                />
+              </div>
+              <div class="certificate-info">
+                <h3>Networking Basics</h3>
+  
+                <a
+                  href="images/certificate-5.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="fas fa-eye"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="certificate-card reveal">
+              <div class="certificate-image">
+                <img
+                  src="images/certificate-6.jpg"
+                  alt="Intellectual Property Awareness Certificate"
+                />
+              </div>
+              <div class="certificate-info">
+                <h3>Symposium on Intellectual Property (IP) Awareness</h3>
+                <a
+                  href="images/certificate-6.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  <i class="fas fa-eye"></i> View Certificate
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-controls">
+            <button
+              class="slider-btn"
+              id="certificatesPrev"
+              aria-label="Previous certificates"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <span class="slider-label">SCROLL TO EXPLORE CERTIFICATES</span>
+            <button
+              class="slider-btn"
+              id="certificatesNext"
+              aria-label="Next certificates"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Contact <span>Me</span></h2>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-details reveal">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email Address</h4>
+                <a href="mailto:bertconrads@gmail.com">bertconrads@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Phone Number</h4>
+                <a href="tel:09551053561">09551053561</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Mada-o, Kawayan, Biliran</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <div>
+                <h4>GitHub</h4>
+                <a
+                  href="https://github.com/BertSalor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/BertSalor
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contactForm">
+            <h3>Send Me a Message</h3>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="contactName"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="contactEmail"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="contactSubject"
+                placeholder="Subject"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="contactMessage"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        © <span id="currentYear"></span> <span>Bert Conrad Salor</span>. All
+        Rights Reserved.
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
